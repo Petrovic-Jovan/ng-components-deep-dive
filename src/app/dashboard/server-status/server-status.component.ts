@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -8,10 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './server-status.component.css',
   host: { id: 'server-status' },
 })
-export class ServerStatusComponent {
+export class ServerStatusComponent implements OnInit {
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
 
-  constructor() {
+  ngOnInit() {
+    // Simulate fetching server status from an API
     setInterval(() => {
       const randomValue = Math.random();
       if (randomValue < 0.5) {
